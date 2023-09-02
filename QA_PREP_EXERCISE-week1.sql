@@ -144,3 +144,52 @@ SELECT r.recipe_name
 FROM Recipes r
 INNER JOIN Categories c ON r.category_id = c.category_id
 WHERE c.category_name = 'Vegan' AND c.category_name = 'Japanese';
+
+
+
+/*
+
+--* Week 3 (Prep Ex): *--
+
+--* ===== Was your database already in 2NF / 3 NF? =====
+
+
+--* 1. 2NF :
+
+-- *Categories`, `Ingredients`, and `Steps`
+
+their tables don't have partial dependencies, so they are already in 2NF. Each of them has a single candidate key.
+
+--* `Recipes` 
+
+the table has a partial dependency issue. The `instructions` column seems to be partially dependent on the entire primary key (recipe_id). To fix this, we can create a separate table for instructions and link it to recipes with the recipe_id as a foreign key.
+
+--* `RecipeIngredients` and `RecipeSteps` 
+their tables represent many-to-many relationships. They don't have partial dependencies.
+
+--* 2. 3NF :
+
+
+--* `Categories`, `Ingredients`, and `Steps`
+
+their tables don't have transitive dependencies and are already in 3NF.
+
+--* `Recipes` 
+
+table, after addressing the partial dependency issue by creating a separate table for instructions, will be in 3NF.
+
+--* `RecipeIngredients` and `RecipeSteps` 
+
+their tables represent relationships and don't have transitive dependencies.
+
+--* What changes did you have to do to normalize your database?
+
+--* 1- Create a separate table for instructions:
+
+Currently, the instructions attribute in the Recipes table has a partial dependency on the recipe_id primary key. To resolve this, I create a new table called RecipeInstructions to store instructions and link it to the Recipes table using a foreign key. 
+
+--*2 Ensure data integrity:
+
+To maintain data integrity, I can add appropriate constraints, such as NOT NULL and default values, to columns that should not be empty or need default values.
+
+*/
