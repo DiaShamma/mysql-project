@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URL and Database Name
-const url = 'mongodb+srv://dshamma89:<password>@cluster0.iy4atgb.mongodb.net/?retryWrites=true&w=majority';
+const url = 'mongodb+srv://hyfuser:hyfpassword@cluster0.iy4atgb.mongodb.net/?retryWrites=true&w=majority';
 const dbName = 'userdb';
 
 // Create a new MongoClient
