@@ -1,8 +1,8 @@
 const { MongoClient } = require('mongodb');
 
 // Connection URL and Database Name
-const url = 'mongodb://localhost:27017';
-const dbName = 'your_database_name';
+const url = 'mongodb+srv://dshamma89:<password>@cluster0.iy4atgb.mongodb.net/?retryWrites=true&w=majority';
+const dbName = 'userdb';
 
 // Create a new MongoClient
 const client = new MongoClient(url, { useUnifiedTopology: true });

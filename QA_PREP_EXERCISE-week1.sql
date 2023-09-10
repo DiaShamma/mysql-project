@@ -1,3 +1,6 @@
+
+
+
 CREATE TABLE Categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     category_name TEXT
@@ -138,12 +141,12 @@ INNER JOIN Steps s ON rs.step_id = s.step_id
 WHERE c.category_name = 'Cake' AND s.step_description NOT LIKE '%bake%';
 
 
--- All the vegan and Japanese recipes:
-
+-- All the vegan or Japanese recipes:
 SELECT r.recipe_name
 FROM Recipes r
 INNER JOIN Categories c ON r.category_id = c.category_id
-WHERE c.category_name = 'Vegan' AND c.category_name = 'Japanese';
+WHERE c.category_name = 'Vegan' OR c.category_name = 'Japanese';
+
 
 
 
